@@ -1,0 +1,16 @@
+[
+{
+  "directory": "/home/fei-chen/code/pvz",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Isrc", "-DSDL_MAIN_HANDLED", "-I", "/home/fei-chen/.xmake/packages/l/libsdl/2.24.0/881313b101a44f42b21475bb8d394740/include", "-I", "/home/fei-chen/.xmake/packages/l/libsdl/2.24.0/881313b101a44f42b21475bb8d394740/include/SDL2", "-I", "/home/fei-chen/.xmake/packages/f/fmt/9.1.0/d363b063d73b40728217e45838c2553c/include", "-DNDEBUG", "-o", "build/.objs/pvz/linux/x86_64/release/src/janitor.cpp.o", "src/janitor.cpp"],
+  "file": "src/janitor.cpp"
+},
+{
+  "directory": "/home/fei-chen/code/pvz",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Isrc", "-DSDL_MAIN_HANDLED", "-I", "/home/fei-chen/.xmake/packages/l/libsdl/2.24.0/881313b101a44f42b21475bb8d394740/include", "-I", "/home/fei-chen/.xmake/packages/l/libsdl/2.24.0/881313b101a44f42b21475bb8d394740/include/SDL2", "-I", "/home/fei-chen/.xmake/packages/f/fmt/9.1.0/d363b063d73b40728217e45838c2553c/include", "-DNDEBUG", "-o", "build/.objs/pvz/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "file": "src/main.cpp"
+},
+{
+  "directory": "/home/fei-chen/code/pvz",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Isrc", "-DSDL_MAIN_HANDLED", "-I", "/home/fei-chen/.xmake/packages/l/libsdl/2.24.0/881313b101a44f42b21475bb8d394740/include", "-I", "/home/fei-chen/.xmake/packages/l/libsdl/2.24.0/881313b101a44f42b21475bb8d394740/include/SDL2", "-I", "/home/fei-chen/.xmake/packages/f/fmt/9.1.0/d363b063d73b40728217e45838c2553c/include", "-DNDEBUG", "-o", "build/.objs/pvz/linux/x86_64/release/src/event.cpp.o", "src/event.cpp"],
+  "file": "src/event.cpp"
+}]
