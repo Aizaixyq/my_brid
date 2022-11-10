@@ -1,3 +1,3 @@
-# C++:Multiplayer-Plant vs. Zombies
+# C++game
 
 未完成
