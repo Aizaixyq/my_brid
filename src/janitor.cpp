@@ -8,7 +8,7 @@ int main() {
     state = SDL_Init(SDL_INIT_EVERYTHING);
     if (!state) {
         fmt::print("startup error\n");
-        fmt::print("detail: {}", SDL_GetError());
+        fmt::print("detail: {}\n", SDL_GetError());
         return 1;
     }
 

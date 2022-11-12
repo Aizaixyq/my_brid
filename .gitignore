@@ -1,5 +1,5 @@
-# Xmake cache
 .xmake/
 build/
 .vscode
 vscode
+test
