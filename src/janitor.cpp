@@ -1,7 +1,6 @@
 #include "main.hpp"
 #include "libheader.hpp"
 
-extern SDL_Window *p_win;
 
 int main() {
     int state;
@@ -13,5 +12,5 @@ int main() {
     }
 
     start_game();
-    SDL_DestroyWindow(p_win);
+    SDL_Quit();
 }
