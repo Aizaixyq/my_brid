@@ -1,19 +1,28 @@
 #include "main.hpp"
 #include "event.hpp"
 #include "figure.hpp"
+#include "physical.hpp"
 #include "libheader.hpp"
 #include <memory>
 
 SDL_Window *p_win;
 SDL_Renderer *renderer;
 SDL_Texture* texture;
-int width = 800;
-int height = 600;
+int width = 1920;
+int height = 1080;
 int fps = 60;
+
+int physical(){
+    return crash();
+}
 
 int draw_back(){
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     return 1;
+}
+
+void _move(int key){
+    player_move(key);
 }
 
 int init_game() {
@@ -36,6 +45,7 @@ int init_game() {
 
     draw_back();
     enemy_init();
+    player_init();
     return 1;
 }
 
@@ -43,11 +53,14 @@ int init_game() {
 int draw(){
     draw_back();
     SDL_RenderClear(renderer);
-    for(int i = 0; i < 5; ++i){
-        auto e = _enemy[i];
+    for(int i = 0; i < enemy_cnt; ++i){
+        item &e = ret_enemy(i);
+        e.frame_cnt(fps * 0.5);
         texture = SDL_CreateTextureFromSurface(renderer, e.ret_img());
-        SDL_RenderCopy(renderer, texture, 0, e.ret_rect());
+        SDL_RenderCopyEx(renderer, texture, 0, e.ret_rect(), e.ret_angle(), 0, SDL_FLIP_NONE);
     }
+    texture = SDL_CreateTextureFromSurface(renderer, ret_player().ret_img());
+    SDL_RenderCopyEx(renderer, texture, 0, ret_player().ret_rect(), ret_player().ret_angle(), 0, SDL_FLIP_NONE);
     enemy_move();
     SDL_RenderPresent(renderer);
     return 1;

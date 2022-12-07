@@ -1,9 +1,9 @@
 #include "items.hpp"
 #include "libheader.hpp"
 
-item::item(): x(0), y(0), w(0), h(0), ptr(-1){}
+item::item(): x(0), y(0), w(0), h(0), ptr(-1), frame_ctr(0), angle(0){}
 
-item::item(item &x): x(x.x), y(x.y), w(x.w), h(x.h), ptr(x.ptr), img(x.img){}
+item::item(item &x): x(x.x), y(x.y), w(x.w), h(x.h), ptr(x.ptr), img(x.img), angle(x.angle), frame_ctr(0){}
 
 item::~item(){}
 
@@ -13,7 +13,9 @@ void item::operator = (item &x){
     this->w = x.w;
     this->h = x.h;
     this->ptr = x.ptr;
+    this->frame_ctr = x.frame_ctr;
     this->img = x.img;
+    this->angle = x.angle;
 }
 
 void item::add_img(SDL_Surface *s){
@@ -50,4 +52,21 @@ SDL_Rect* item::ret_rect(){
 
 SDL_Surface* item::ret_img(){
     return img[ptr];
+}
+
+double& item::ret_angle(){
+    return angle;
+}
+
+void item::frame_cnt(int flag){
+    ++frame_ctr;
+    if(flag < 0){
+        point_img(0);
+        frame_ctr = 0;
+    }
+    else if(frame_ctr > flag){
+        switch_img();
+        frame_ctr = 0;
+    }
+    //fmt::print("{}\n", frame_ctr);
 }
