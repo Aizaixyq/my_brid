@@ -1,5 +1,5 @@
 add_rules("mode.debug", "mode.release")
-add_requires("libsdl", "fmt", "libsdl_image")
+add_requires("libsdl", "fmt", "libsdl_image", "libsdl_mixer")
 option("event")
     add_cxxflags("-DDEBUG_EVENT")
 
@@ -10,5 +10,5 @@ target("dev")
     set_pcxxheader("src/libheader.hpp")
     add_includedirs("src")
     add_files("src/*.cpp")
-    add_packages("libsdl", "fmt", "libsdl_image")
+    add_packages("libsdl", "fmt", "libsdl_image", "libsdl_mixer")
     add_options("event")

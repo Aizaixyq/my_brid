@@ -1,4 +1,5 @@
 #include "main.hpp"
+#include "audio.hpp"
 #include "event.hpp"
 #include "figure.hpp"
 #include "physical.hpp"
@@ -46,6 +47,7 @@ int init_game() {
     draw_back();
     enemy_init();
     player_init();
+    audio_init();
     return 1;
 }
 
@@ -56,9 +58,11 @@ int draw(){
     for(int i = 0; i < enemy_cnt; ++i){
         item &e = ret_enemy(i);
         e.frame_cnt(fps * 0.5);
+        SDL_DestroyTexture(texture);
         texture = SDL_CreateTextureFromSurface(renderer, e.ret_img());
         SDL_RenderCopyEx(renderer, texture, 0, e.ret_rect(), e.ret_angle(), 0, SDL_FLIP_NONE);
     }
+    SDL_DestroyTexture(texture);
     texture = SDL_CreateTextureFromSurface(renderer, ret_player().ret_img());
     SDL_RenderCopyEx(renderer, texture, 0, ret_player().ret_rect(), ret_player().ret_angle(), 0, SDL_FLIP_NONE);
     enemy_move();
@@ -71,6 +75,7 @@ int quit_game(){
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(p_win);
     free_img();
+    free_audio();
     return 1;
 }
 
@@ -79,4 +84,20 @@ int start_game() {
     event_monitor();
     quit_game();
     return 1;
+}
+
+int again(){
+    for(int i = 0; i < enemy_cnt; ++i)
+        enemy_move_init(i);
+    return event_again();;
+}
+
+int run(){
+    draw();
+    audio_check();
+    if(!physical()){
+        //audio_over();
+        return again();
+    }
+    return 2;
 }

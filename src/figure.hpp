@@ -11,5 +11,6 @@ void player_move(int key);
 void player_init();
 void enemy_init();
 void free_img();
+void enemy_move_init(int i);
 
 #endif

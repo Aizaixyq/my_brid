@@ -1,12 +1,9 @@
 #ifndef MAIN_H_
 #define MAIN_H_ 1
 
-int physical();
 void _move(int key);
-int init_game();
-int draw_back();
-int draw();
 int start_game();
+int run();
 
 extern int width;
 extern int height;
